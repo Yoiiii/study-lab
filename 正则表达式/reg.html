@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // + :出现一次到多次
+    // \d :数字
+    // 、D:非数字
+    //let str ="asdfsadf11212safds2111adf12sa"
+    // let reg =/\d+/g;
+    // let arr =str.match(reg)
+    // console.log(arr);
+
+
+
+    //let str ="asdfsadf11212safds2111adf12sa"
+    //正则创建
+    //方式一:字面量创建
+    // let reg =/\d+/;
+    // let res = str.match(reg)
+    // console.log(res);
+
+    //创建方式二:构造函数创建
+    // let reg =new RegExp("\\d+");
+    // let a="asd"
+    // let res =str.match(reg)
+    // console.log(res);
+
+    //正则方法
+    //1.test 测试是否符合正则表达式 返回true/false
+    // let str ="sd12121fasdf1sadf"
+    // let reg =/\d+/g
+    // //console.log(reg.test(str));
+    // //2.exec 
+    // console.log(reg.exec(str));
+    // console.log(reg.exec(str));
+
+
+    //字符串方法
+    //1.split 
+    // let str  ="sdfasdfasdfasfda"
+    // let arr = str.split(/a/)
+    // console.log(arr);
+    //2.replace
+    // let str  ="sdfasdfasdf121asfda"
+    // let reg =/\d/g
+    // let arr = str.replace(reg,"x")
+    // console.log(arr);
+    // //敏感词过滤
+    // let reg =/你好|你坏坏/g
+    // let res =str.replace(reg,function(arg){
+    //   return "*".repeat(arg.length)
+    // })
+    //3.search :匹配符合结果的索引值：如果找不到就返回-1，忽略全局匹配
+    //4.match 检索匹配值
+
+
+    //元字符： 正则中有特殊含义的非字母字符
+    //.  匹配除了 \n \r \u2028 或 \u2020
+    //*  0次或者多次
+
+    //[] :字符集合
+    //^ 以什么为开头
+    // $ 以什么为结尾
+    //\w 数字字母 下划线
+  </script>
+
+</body>
+</html>

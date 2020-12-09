@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script type="module">
+  import {b,c} from './a.js'
+  //console.log(num);
+  import * as obj from './a.js'
+  console.log(b,c);
+
+  //按需导入(延迟导入)：import 方法 返还promis对象
+  document.onclick= async function(){
+    // import("./a.js").then(res=>{
+    //   console.log(res);
+    // })
+    let res =await import("./a.js")
+    console.log(res);
+  }
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./MyVue.js"></script>
+</head>
+<body>
+    <div id="app">
+      {{message}}
+      <div>{{message}}</div>
+      <div v-html="htmlData"  class="666">1</div>
+      <input v-model="modelData" />{{modelData}}
+    </div>
+    
+</body>
+<script>
+  let vm = new Myvue({
+    el:"#app",
+    data:{
+      message:"hello",
+      htmlData:"html数据",
+      modelData:"绑定的数据"
+    }
+  })
+  setTimeout(()=>{
+    vm.$options.data.message="6666"
+    console.log("修改666");
+  },1000)
+</script>
+</html>
