@@ -1,0 +1,26 @@
+{
+  "name": "study-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yoiiii/study-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yoiiii/study-lab/issues"
+  },
+  "homepage": "https://github.com/Yoiiii/study-lab#readme",
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.0.0",
+    "koa-server-http-proxy": "^0.1.0",
+    "koa-static": "^5.0.0"
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>代理请求</h1>
+  <button onclick="sub()">点击我请求数据</button>
+  <button onclick="difSource()">请求非同源的api</button>
+</body>
+<script>
+  //同源
+  function sub(){
+    let xhr =new XMLHttpRequest()
+    xhr.open("get","/api/proxy",true)
+    xhr.onload=function(){
+      console.log(xhr.getAllResponseHeaders());
+      console.log(xhr.responseText);
+    }
+    xhr.send()
+  }
+  //非同源 ：跨域    =>是浏览器行为，浏览器发现跨域将返回的数据进行拦截
+  function difSource(){
+    let xhr =new XMLHttpRequest()
+    xhr.open("post","http://localhost:4000/getData",true)
+    // xhr.setRequestHeader("mytest","some header value..")
+    xhr.setRequestHeader("content-type","application/json")
+    xhr.onload=function(){
+      console.log(xhr.getAllResponseHeaders());
+      console.log(xhr.responseText);
+    }
+    xhr.send()
+  }
+</script>
+</html>
