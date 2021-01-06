@@ -10,12 +10,27 @@
   <button onclick="sub()">点击发送请求</button>
 </body>
 <script>
+  //请求拦截器
+  axios.Interceptors.request.use((config)=>{
+    console.log("request...1111");
+    return config
+  },err=>{
+    console.log(err);
+  })
+
+  //放一个队列：请求拦截器->请求->返还拦截器
   function sub(){
     //axios()
-    let axios =new axios()
-    axios.request({
-      url:"/getData"
-    })
+    //let axios =new Axios()
+    // axios({
+    //   url:"/getData"
+    // }).then(res=>{
+    //   console.log("结果",res);
+    // })
+    axios.post("/getData").then(res=>{
+    console.log(res);
+  })
   }
+
 </script>
 </html>
