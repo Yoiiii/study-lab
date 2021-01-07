@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/babel.js"></script>
+</head>
+
+<body>
+  <div id="box"></div>
+  <input type="text" id="text">
+  <script type="text/babel">
+    {
+     //复杂情况下的条件输出可以包在函数里面执行
+     let fn=()=>{
+        if(1>0){
+          return <div>复杂判断</div>
+        }
+     }
+     let isShow = false
+      ReactDOM.render(
+        <header id="title">
+          {/*isShow?<h1>正确</h1>:<h1>错误</h1>*/}
+          {/*isShow&&<h1>正确</h1>*/}
+          {/*isShow||<h1>错误</h1>*/}
+          {fn()}
+        </header>,
+        document.querySelector('#box')
+      )
+    }
+  </script>
+</body>
+
+</html>

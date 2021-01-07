@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/babel.js"></script>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script type="text/babel">
+    {
+      /*
+        列表渲染：
+        1.jsx不能写循环语句 for、while
+        2.jsx中可以接受数组
+      */
+    //  let arr =[
+    //    <p>1</p>,
+    //    <p>2</p>,
+    //    <p>3</p>
+    //  ]
+    // let arr = [
+    //   "a",
+    //   "b",
+    //   "c",
+    //   "d"
+    // ]
+    let obj ={
+      a:1,
+      b:2,
+      c:3,
+      d:4
+    }
+      ReactDOM.render(
+       <div>
+        {/*arr.map(item=><p>这是{item}</p>)*/}
+        {Object.keys(obj).map((item,index)=><p>{index}{item}</p>)}
+        </div>,
+        document.querySelector('#box')
+      )
+    }
+  </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 window.onload = function () {
-  //获取手机元素
+  //获取元素
   let oUlElement = document.querySelector('.oUl')
   let imgElements = [...oUlElement.querySelectorAll('img')]
   let btnElements = [...document.querySelectorAll('.btn')]

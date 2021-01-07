@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/babel.js"></script>
+</head>
+<body>
+  <div id="box"></div>
+  <input type="text" id="text">
+  <script type="text/babel">
+    {
+      let text =document.querySelector("#text")
+      text.oninput = ()=>{
+        ReactDOM.render(
+          <div>
+            这是新内容：{text.value}
+          </div>,
+          document.querySelector('#box')
+        )
+      }
+    }
+  </script>
+</body>
+
+</html>
