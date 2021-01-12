@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import App from './demo/app'
 
 let arr = [
   {
@@ -52,7 +53,7 @@ let arr = [
 // );
 
 //sytle 注意style 接收一个对象
- let str = "warp"
+  let str = "warp"
 // let style ={
 //   background:"red",
 //   width:"100px",
@@ -69,18 +70,7 @@ let arr = [
 
 
 ReactDOM.render(
-  <div className={str}>
-    <label htmlFor="#box"></label>
-    <div style={{
-      background: "red",
-      width: "100px",
-      height: '200px'
-    }}>1</div>
-    <div>2</div>
-  </div>,
+  <App data={arr} name="kkb" title="asdf" />,
   document.getElementById('root')
 );
-
-
-
 reportWebVitals();
