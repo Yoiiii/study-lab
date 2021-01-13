@@ -1,6 +1,8 @@
-import react,{Component} from 'react'
-export default class dd extends Component{
+import React,{Component} from 'react'
+export default class Dd extends Component(){
   render(){
-    return <dd></dd>
+    return (
+        <dd></dd>
+    )
   }
 }

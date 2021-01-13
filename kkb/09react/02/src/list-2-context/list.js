@@ -1,18 +1,17 @@
-import React,{Component} from 'react'
-import dd from './dd'
-export default class List extends Component{
-  render(){
-    let {data,isOpen,name,setOpen,parent}=this.props
-    return (<dl className={`friend-group ${isOpen?"expanded":""}`}>
-      <dt onClick={()=>{
-        setOpen(name)
-        // parent.setState({
-        //   openChild:name
-        // })
-      }}>{data.title}</dt>
-      {data.list.map((item,index)=>{
-        return <dd key={index}>{item.name}</dd>
-      })}
+import React, { Component } from 'react'
+import Dd from './dd'
+import Dt from './dt'
+export default class List extends Component {
+  render() {
+    //console.log(this.props);
+    let { Consumer } = this.props
+    console.log(Consumer);
+    return (<dl className={`friend-group `}>
+      <Consumer>
+      <Dd {...this.props} />
+      </Consumer>
+      <Dt {...this.props} />
+      
     </dl>)
   }
 }

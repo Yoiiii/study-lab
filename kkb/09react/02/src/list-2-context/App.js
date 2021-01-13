@@ -1,6 +1,36 @@
-import React,{Component} from 'react'
+import React,{Component,createContext} from 'react'
 import './index.css'
-import List from './list'
+//import List from './list'
+let myContext =createContext()
+let {Provider,Consumer} = myContext
+//Provider 放在要传递数据组件的最外层
+class Div extends Component{
+  render(){
+    return <div>
+      <P/>
+    </div>
+  }
+}
+class P extends Component{
+  static contextType=myContext
+  render(){
+    return <p>
+      <Consumer>
+        {(props)=>{
+          return <Span {...props}></Span>
+        }}
+      </Consumer>
+    </p>
+  }
+}
+
+//P.contextType=myContext
+class Span extends Component{
+  static contextType=myContext
+  render(){
+    return <Span>{this.props.family.title}</Span>
+  }
+}
 class App extends Component{
   state={
     openChild:"family",//记录当前是哪个字组件展开
@@ -37,14 +67,9 @@ class App extends Component{
   }
   render(){
     let {data,openChild} =this.state
-    return (<div className="friend-list">
-      {Object.keys(data).map((item,index)=>{
-        return <List 
-        key={item} 
-        name={item}
-        />
-      })}
-    </div>)
-  }
+    return (<Provider value={data}>
+      <Div/>
+    </Provider>)
+  }   
 }
 export default App
