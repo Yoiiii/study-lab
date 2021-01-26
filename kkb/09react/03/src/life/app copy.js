@@ -15,10 +15,7 @@ class Child extends Component{
   // componentDidMount(){
   //   console.log(4,"已经挂载进DOM");
   // }
-  componentDidMount(){
-    let box = document.querySelector("#box")
-    console.log(box.innerHTML);
-  }
+
   state={
     age:8
   }
@@ -68,34 +65,17 @@ class Child extends Component{
 }
 class App extends Component{
   state={
-    name:"dlx",
-    err:false
+    name:"dlx"
   }
   setName=(name)=>{
     this.setState({
       name
     })
   }
-  static getDerivedStateFromError(err){
-    return{
-      err:true
-    }
-  }
-  componentDidCatch(err,errInfo){
-    console.log(errInfo);
-  }
-  // componentDidCatch(err){
-  //   console.log(err);
-  //   if(err){
-  //     this.setState({
-  //       err:true
-  //     })
-  //   }
-  // }
   render(){
-    let {name,err} =this.state
+    let {name} =this.state
     return <div>
-      {err?"子组件出错了": <Child name={name} setName={this.setName}/>}
+      <Child name={name} setName={this.setName}/>
     </div>
   }
 }
