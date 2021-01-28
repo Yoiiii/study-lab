@@ -21,7 +21,7 @@ class Alert extends PureComponent{
       {/* {children} */}
       {/* <Child hide={this.hide}></Child> */}
       {cb({hide:this.hide})}
-    </div>
+    </div>   
   }
 }
-export default Alert
+export default Alert 
