@@ -24,7 +24,7 @@ class Create extends PureComponent{
               alert("清输入内容")
               return
             }
-            addData(val)
+            addData(val) 
             this.setState({
               val:""
             })

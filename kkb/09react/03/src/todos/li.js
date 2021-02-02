@@ -44,7 +44,7 @@ class Li extends PureComponent{
             }}>{txt}</div>
             <span className="todo-destory" onClick={()=>{
               remove(id)
-            }}>x</span>
+            }}></span>
           </div>
           <div className="edit">
             <input 
