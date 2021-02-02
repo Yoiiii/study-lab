@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何让img自动适应div容器大小？</title>
+</head>
+<body>
+  <div class="ShaShiDi">
+		<img src="./1.png"/>
+	</div>
+	<div class="ShaShiDi">
+		<img src="./2.png"/>
+	</div>
+</body>
+<style>
+  .ShaShiDi{
+  width:500px;
+  height:400px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  /*为了效果明显，可以将如下边框打开，看一下效果*/
+  /* border:1px solid black; */
+  }
+  
+  .ShaShiDi img{
+    width:100%;
+    height:auto;
+  }
+  
+  </style>
+</html>
