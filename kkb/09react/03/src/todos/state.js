@@ -1,7 +1,7 @@
 import React ,{PureComponent} from 'react';
 class State extends PureComponent{
   render(){
-    let {data}=this.props
+    let {data,removeDone}=this.props
     let doneData =data.filter(item=>item.done)
     let undoneData = data.filter(item=>!item.done)
     return(
@@ -11,7 +11,12 @@ class State extends PureComponent{
           <span className="word">项待完成</span>
         </span>
         {doneData.length<1?"":<span className="todo-clear">
-          <a href="#">
+          <a 
+          href="#"
+          onClick={()=>{
+            removeDone()
+          }}
+          >
             Clear <span>{doneData.length}</span>已完成事项
           </a>
         </span>}
