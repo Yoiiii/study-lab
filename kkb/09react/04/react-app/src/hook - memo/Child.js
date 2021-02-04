@@ -8,10 +8,10 @@ function Child(props){
     return `姓名:${name},年龄:${age}`
   },[name,age])
   // console.log(val);
+  console.log("组件挂载");
   useEffect(()=>{
     console.log("组件挂载完成或更新完成");
   })
-  console.log("组件挂载");
   return (<div>
     <p>{val}</p>
     <p>name:{name}<br/>
@@ -31,7 +31,7 @@ function Child(props){
         setAge(target.value)
     }}>
     </input>
-    </p>
+    </p>   
   </div>)
 }
 export default Child;
