@@ -5,21 +5,19 @@ import React ,{useState,useEffect}from "react"
  *  useEffect(cb,[依赖1,依赖2])
  * 
  *  useEffect 相当于componentDidMout、componentDidUpdate 和 componentWillUnmount 的综合体
- * 
- *  只希望在组件挂载后执行某些事情(componentDidMount)
  */
 function Child(props){
   const {name,setName}=props
   const [age,setAge]=useState(8)
+  // useEffect(()=>{
+  //   console.log("组件更新了");
+  // })
   useEffect(()=>{
-    console.log("组件挂载完成之后");
-    return ()=>{
-      console.log("组件即将卸载时执行");
-    }
-  },[])
+    console.log("age变化导致更新了");
+  },[age])
   useEffect(()=>{
-    console.log("组件挂载完成之后及更新完成之后");
-  })
+    console.log("name变化导致更新了");
+  },[name])
   return (<div>
     <p>name:{name}<br/>
     <input 

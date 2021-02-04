@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      {show?      <Child 
+      {show?<Child 
         name={name}
         setName={setName}
       />:""}
