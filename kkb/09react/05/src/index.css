@@ -1,0 +1,16 @@
+.nav{
+  display: flex;
+  border-bottom: 2px solid #000;
+}
+.nav a{
+  font: 14px/40px "宋体";
+  height: 40px;
+  margin-left: 10px;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+  margin-bottom: -2px;
+}
+.nav.hover {
+  color:red;
+  border-bottom-color: red;
+}
