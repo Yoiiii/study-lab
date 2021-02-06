@@ -1,4 +1,5 @@
-function Index(){
+function Index(props){
+  console.log(props);
   return(
     <div>
       <h1>这是首页</h1>

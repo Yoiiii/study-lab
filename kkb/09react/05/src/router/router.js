@@ -1,10 +1,13 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import Index from '../view/index'
 import About from '../view/about'
 import Join from '../view/joinus'
 import Detail from '../view/joinus_detail'
 import View404 from '../view/404'
 import Login from '../view/login'
+import Class from '../view/class'
+
 //路由表
 let routeList =[
   {
@@ -35,6 +38,17 @@ let routeList =[
     }
   },
   {
+    title:"班级",
+    path:"/class/:page",
+    isDynmic:true,
+    to:"/class/",
+    exact:true,
+    isNav:true,
+    render:(props)=>{
+      return (<Class {...props}/>)
+    }
+  },
+  {
     title:"加入我们",
     path:"/join",
     exact:true,
@@ -49,6 +63,10 @@ let routeList =[
     exact:true,
     isNav:true,
     render:(props)=>{
+      //console.log(props.user);
+      if(props.user!==""){
+        return <Redirect to="/"/>
+      }
       return (<Login  {...props}/>)
     }
   },

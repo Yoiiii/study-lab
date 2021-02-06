@@ -10,7 +10,17 @@
   border-bottom: 2px solid #000;
   margin-bottom: -2px;
 }
-.nav.hover {
+.nav .hover {
   color:red;
   border-bottom-color: red;
+}
+.page-nav {
+  display: flex;
+}
+.page-nav a {
+  margin: 0 5px;
+  color: #ccc;
+}
+.page-nav .active {
+  color: red;
 }
