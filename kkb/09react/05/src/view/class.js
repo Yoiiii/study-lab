@@ -42,7 +42,7 @@ function Class(props){
     <ClassNav {...props}></ClassNav>
   </div>)
 }
-// function Class(props){
+// function Class(props){ 
 //   return (<div>
 //     <List2 />
 //     <ClassNav {...props}></ClassNav>
