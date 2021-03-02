@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './redux-demo/App';
+import App from './todos-redux/App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux-demo/reducer/index'
+import store from './todos-redux/reducer/index'
 import {Provider} from 'react-redux'
 
 ReactDOM.render(

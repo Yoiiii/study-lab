@@ -44,7 +44,7 @@ function reducer(state = {
 }
 
 let store = createStore(reducer)
-//console.log(store.getState());
+console.log(store.getState());
 store.subscribe(()=>{
   console.log("发生修改了",store.getState());
 })

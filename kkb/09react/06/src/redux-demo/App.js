@@ -1,7 +1,9 @@
+import React from 'react'
+import Inner from './inner'
 function App(props) {
   return (
-    <div className="App">
-      Hello React
+    <div className="App">      
+      <Inner name="dlx"/>
     </div>
   );
 }
