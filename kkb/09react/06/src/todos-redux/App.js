@@ -4,13 +4,16 @@ import Create from './view/create'
 import State from './view/state'
 import Title from './view/title'
 import Todos from './view/todos'
- export default function App(){
+import {connect} from 'react-redux'
+ function App(props){
+   let {length} =props
    return <div id="todoapp">
      <Title/>
      <div className="content">
        <Create />
-       <Todos/>
-       <State/>
+       {length>0?<Todos />:""}
+       {length>0?<State/>:""}
      </div>
    </div>
  }
+ export default connect(state=>({length:state.length}))(App)

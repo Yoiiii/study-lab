@@ -1,28 +1,34 @@
 import React,{useState} from 'react'
+import {connect} from 'react-redux'
 function Create(props){
-  let [val,setVal]=useState("")
-  let {addData}=props
+  console.log(props);
+  //let [val,setVal]=useState("")
+  let {dispatch}=props
   return (
     <div id="create-todo">
       <input id="new-todo"  
       placeholder="What needs to be done?" 
       autoComplete="off"
       type="Text" 
-      value={val}
-      onChange={(e)=>{
-        setVal(e.target.value)
-      }}
+      // value={val}
+      // onChange={(e)=>{
+      //   setVal(e.target.value)
+      // }}
+      defaultValue=""
       onKeyDown={(e)=>{
         if(e.keyCode===13){
-          if(val.trim()===""){
+          if(e.target.value.trim()===""){
             alert("清输入内容")
             return
           }
-          addData(val) 
-          setVal(e.target.value)
+          dispatch({
+            type:'ADD',
+            val:e.target.value
+          })
+          e.target.value=""
         }
       }}/>
     </div>
   )
 }
-export default Create
+export default connect()(Create)

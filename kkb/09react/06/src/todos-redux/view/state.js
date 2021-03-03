@@ -1,19 +1,35 @@
 import React  from 'react';
-function State (){
+import {connect} from 'react-redux';
+function State (props){
+  let {unDoneLength,doneLength,dispatch} =props
     return(
       <div id ="todo-stats">
         <span className="todo-count">
-          <span className="number">0</span>
+          <span className="number">{unDoneLength}</span>
           <span className="word">项待完成</span>
         </span>
-        <span className="todo-clear">
+        {doneLength>0?(<span className="todo-clear">
           <a 
           href="#"
+          onClick={()=>{
+            dispatch({
+              type:"REMOVEDONE"
+            })
+          }}
           >
-            Clear <span></span>已完成事项
+          
+            Clear <span>{doneLength}</span>已完成事项
           </a>
-        </span>
+        </span>):""}
+        
       </div>
     )
   }
-export default State
+export default connect(state=>{
+  let unDoneLength = state.filter(item=>!item.done).length
+  let doneLength =state.length - unDoneLength
+  return{
+    unDoneLength,
+    doneLength
+  }
+})(State)

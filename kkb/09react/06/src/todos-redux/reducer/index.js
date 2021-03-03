@@ -1,17 +1,34 @@
 import {createStore} from 'redux'
 
-function reducer(state=[
-  {
-    id:0,
-    txt:"这是第一项数据",
-    done:false
-  },
-  {
-    id:1,
-    txt:"这是第二项数据",
-    done:true
+function reducer(state=[],action){
+  switch (action.type){
+    case 'ADD':
+      console.log(action.val);
+      state.push({
+        id:Date.now(),
+        txt:action.val,
+        done:false
+      })
+      return [...state] 
+    case "DONE":
+      state.forEach(item=>{
+        if(item.id===action.id){
+          item.done =action.done
+        }
+      })
+      return [...state]
+    case "REMOVE":
+      return state.filter(item=>item.id !== action.id)
+    case "EDIT":
+      state.forEach(item=>{
+        if(item.id===action.id){
+          item.txt=action.txt
+        }
+      })
+      return [...state]
+    case "REMOVEDONE":
+      return state.filter(item=>item.doen)
   }
-],action){
   return state
 }
 
