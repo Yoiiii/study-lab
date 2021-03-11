@@ -24,7 +24,7 @@ const store =createStore(reducer)
 //   store.dispatch({
 //     type:"ADD"
 //   })
-// },1000)
+// },1000) 
 //console.log(store);
 
-export default store
+export default store    
