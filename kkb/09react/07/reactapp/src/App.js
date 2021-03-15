@@ -1,9 +1,8 @@
-import {Button} from 'antd'
-import "./App.less"
+import RouteList from './routes/routes'
 function App() {
   return (
     <div className="App">
-      <Button type="primary">按钮</Button>
+      <RouteList/>
     </div>
   );
 }
