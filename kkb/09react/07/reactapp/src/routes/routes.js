@@ -1,12 +1,62 @@
 import React from 'react'
-import {Switch,Route} from 'react-router-dom'
-import routes from './index'
+import Index from '../view/index/index'
+import GetStart from '../view/getstart/index'
+import About from '../view/about/index'
+import Topic from '../view/topic/' 
+import User from '../view/user'
+import View404 from '../view/view404'
+const routes=[
+  {
+    title:'首页',
+    path:'/',
+    exact:true,
+    render(...props){
+      return (<Index {...props}/>)
+    },
+    isNav:true
+  },
+  {
+    title:'新手入门',
+    path:'/getstart',
+    exact:false,
+    render(...props){
+      return (<GetStart {...props}/>)
+    },
+    isNav:true
+  },
+  {
+    title:'关于',
+    path:'/about',
+    exact:false,
+    render(...props){
+      return (<About {...props}/>)
+    },
+    isNav:true
+  },
+  {
+    title:'文章详情',
+    path:'/topic/:id',
+    exact:false,
+    render(...props){
+      return (<Topic {...props}/>)
+    },
+  },
+  {
+    title:'用户详情',
+    path:'/user/:username',
+    exact:false,
+    render(...props){
+      return (<User {...props}/>)
+    },
+  }, 
+  {
+    title:'404',
+    path:'',
+    exact:false,
+    render(...props){
+      return (<View404 {...props}/>)
+    }
+  }
+]
 
-function RouteList(){
-  return <Switch>
-    {routes.map((item,index)=>{
-      return <Route key={index} exact={item.exat} render={item.render}/>
-    })}
-  </Switch>
-}
-export default RouteList
+export default routes
