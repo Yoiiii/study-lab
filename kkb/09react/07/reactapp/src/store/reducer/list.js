@@ -3,6 +3,11 @@ export default function list (list={
     data:[]
 },action){
     switch(action.type){
+        case "LIST_LOAD":
+            return{
+                loading:true,
+                data:[]
+            }
         case "LIST_LOADOVER":
             return {
                 loading:false,
