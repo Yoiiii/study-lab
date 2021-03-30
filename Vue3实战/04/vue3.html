@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3.0</title>
+</head>
+<style>
+  [v-cloak]{
+    display: none;
+  }
+</style>
+<body>
+  <div id="app" v-cloak>
+    <p>姓名:{{name}}</p>
+    <p>职业:{{state.work}}</p>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    //Vue 现在存在于window 全局变量下，所以直接通过ES6解构出 createApp、ref、reactive
+    const {createApp,ref,reactive} =Vue;
+    const App={
+      setup() {
+        const name = ref("Yoi")
+        const state =reactive({
+          work:"前端工程师"
+        })
+        return{
+          state,
+          name
+        }
+      }
+    }
+    createApp(App).mount("#app")
+  </script>
+</body>
+</html>
