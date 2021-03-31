@@ -1,7 +1,9 @@
 import React from 'react';
 import {Menu} from 'antd'
 import {Link} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 function IndexMenu(){
+  let {limit}= useSelector(state=>state.list)
   return (
     <div>
       <Menu
@@ -9,13 +11,13 @@ function IndexMenu(){
         defaultSelectedKeys={["all"]}
       >
         <Menu.Item key="all">
-          <Link to={"/?tab=all"}>全部</Link>
+          <Link to={"/?tab=all&limit"+limit}>全部</Link>
         </Menu.Item>
         <Menu.Item key="good">
-          <Link to={"/?tab=good"}>精华</Link>
+          <Link to={"/?tab=good&limit"+limit}>精华</Link>
         </Menu.Item>
         <Menu.Item key="share">
-          <Link to={"/?tab=share"}>分享</Link>
+          <Link to={"/?tab=share&limit"+limit}>分享</Link>
         </Menu.Item>
       </Menu>
     </div>

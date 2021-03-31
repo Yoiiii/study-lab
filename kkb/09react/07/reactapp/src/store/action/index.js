@@ -18,4 +18,27 @@ function getList({page=1,tab="all",limit=10,mdrender=false}){
   }
 }
 
-export {getList}
+function getTopic(id){
+  if(id!==""){
+    return function(dispatch){
+      dispatch({
+        type:'TOPIC_LOAD'
+      })
+      http.get(`/topic/${id}`)
+      .then((res)=>{
+        console.log(res);
+        if(res.data.success){
+          dispatch({
+            type:'TOPIC_LOADOVER',
+            data:res.data.data
+          })
+        }
+      })
+    }
+  }
+}
+
+export {
+        getList,
+        getTopic
+      }
