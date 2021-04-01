@@ -4,6 +4,7 @@ import GetStart from '../view/getstart/index'
 import About from '../view/about/index'
 import Topic from '../view/topic/' 
 import User from '../view/user'
+import Login from '../view/login'
 import View404 from '../view/view404'
 const routes=[
   {
@@ -33,6 +34,14 @@ const routes=[
     },
     isNav:true
   },
+  {
+    title:'登录',
+    path:'/login',
+    exact:false,
+    render(...props){
+      return (<Login {...props}/>)
+    },
+  }, 
   {
     title:'文章详情',
     path:'/topic/:id',

@@ -7,10 +7,8 @@ function App() {
     <div>
       <Layout className="layout">
         <Header />
-        <Layout.Content style={{ padding: '0 0' }}>
-        <div className="site-layout-content">
-        <RouteList />
-        </div>
+        <Layout.Content className="main">
+          <RouteList />
         </Layout.Content>
         <Layout.Footer style={{ textAlign: 'center' }}>React cnode.js ©2021 Created by Yoi</Layout.Footer>
       </Layout>,

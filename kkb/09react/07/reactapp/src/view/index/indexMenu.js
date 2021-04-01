@@ -19,6 +19,9 @@ function IndexMenu(){
         <Menu.Item key="share">
           <Link to={"/?tab=share&limit"+limit}>分享</Link>
         </Menu.Item>
+        <Menu.Item key="ask">
+          <Link to={"/?tab=ask&limit"+limit}>问答</Link>
+        </Menu.Item>
       </Menu>
     </div>
   )
