@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 
-function Main(props){
-  let {todos}=props
+function Main(props){ 
+  let {todos,changeCompleted,remove,editVal}=props
   return (
     <section 
       id="main" 
@@ -13,7 +13,7 @@ function Main(props){
         </label>
         <ul id="todo-list">
           {todos.map((item)=>{
-           return <Li key={item.id} inner={item.value}/>
+           return <Li key={item.id} inner={item} changeCompleted={changeCompleted} remove={remove} editVal={editVal}/>
           })} 
         </ul>
     </section>
@@ -21,15 +21,50 @@ function Main(props){
 }
 
 function Li(props){
-  let {inner} = props
+  const [edit,setEdit]=useState(false)
+  const elEdit = useRef(null)
+  let {inner,changeCompleted,remove,editVal} = props
+  useEffect(()=>{
+    if(edit){
+      elEdit.current.select()
+    }else{
+      
+    }
+  },[edit])
   return (
-    <li className="">
-      <div className="view" style={{display:'block'}}>
-        <input className="toggle" type="checkbox" />
-        <label>{inner}</label>
-        <a className="destory"></a>
+    <li className={inner.completed?"done":""}>     
+      <div className="view" style={{display:edit?"none":"block"}}>
+        <input 
+          className="toggle" 
+          type="checkbox"
+          checked ={inner.completed}
+          onChange={
+            (e)=>{
+              changeCompleted(inner.id,e.target.checked)
+            }
+          }
+          />
+        <label className="todo-content" onDoubleClick={()=>{
+          setEdit(true)
+        }}>{inner.val}</label>
+        <a className="todo-destroy" onClick={()=>{
+          remove(inner.id)
+        }}></a>
       </div>
-      <input className="edit" type="text" value="" style={{display:'none'}}></input>
+      <input 
+        ref={elEdit}
+        type="text" 
+        className="edit"
+        value={inner.val} 
+        style={{display:edit?"block":"none"}}
+        onBlur={()=>{
+          setEdit(false)
+        }}
+        onChange={(e)=>{
+          editVal(inner.id,e.target.value)
+        }}
+        >
+        </input>
     </li>
   )
 }

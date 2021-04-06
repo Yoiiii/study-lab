@@ -87,6 +87,7 @@ html {
 
 #todo-list {
   margin-top: 10px;
+  
 }
   #todo-list li {
     padding: 12px 20px 11px 0;
@@ -109,7 +110,19 @@ html {
     }
   #todo-list .editing .display,
   #todo-list .edit {
-    display: none;
+    width: 444px;
+    font-size: 24px;
+    font-family: inherit;
+    margin: 0;
+    line-height: 1.6em;
+    border: 0;
+    outline: none;
+    padding: 10px 7px 0px 27px;
+    border: 1px solid #999999;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
   }
     #todo-list .editing .edit {
       display: block;
