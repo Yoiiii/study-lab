@@ -4,17 +4,15 @@ import React from 'react'
 // import Ref from './hooks/useRef'
 // import Todos from './todos/index'
 // import Todos from './todos/index'
-
 //import CallBack from './hooks/callback'
-import Context from './hooks/context'
-
-import Reduce from './hooks/reduce'
-
+//import Context from './hooks/context'
+//import Reduce from './hooks/reduce'
 //import Memo from './hooks/memo'
+import Hook from './hooks/hook'
 function App() {
   return (
     <div className="App">
-      <Reduce/>
+      <Hook/>
     </div>
   );
 }
