@@ -1,4 +1,6 @@
-function index(state,actions){
+function index(state={
+  
+},actions){
   return state
 }
 export default {
