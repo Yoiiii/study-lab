@@ -48,4 +48,25 @@ const routeList=[
   }
 ]
 
-export default routeList
+const nav =[
+  {
+    name:"首页",
+    path:"/",
+    exact:true,
+    className:"iconfont icon-home"
+  },
+  {
+    name:"课程安排",
+    path:"/course",
+    exact:false,
+    className:"iconfont icon-kecheng"
+  },
+  {
+    name:"讲师团队",
+    path:"/lecturer",
+    exact:false,
+    className:"iconfont icon-peixunjiangshi"
+  }
+]
+
+export  {routeList,nav}

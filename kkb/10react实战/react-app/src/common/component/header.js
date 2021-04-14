@@ -1,36 +1,58 @@
-import React from 'react'
-import {connect} from "react-redux"
-import {Link,withRouter} from "react-router-dom"
-import {useBack} from "../../common/hook/index"
-function getUser(path,user){
-  if( path ==="/login"){
-    return ""
+import React, { useEffect ,useState} from 'react'
+import { connect } from "react-redux"
+import { Link, withRouter } from "react-router-dom"
+import { useBack } from "../../common/hook/index"
+import isLogin from '../../store/action/isLogin'
+import logout from '../../store/action/logout'
+
+function Header(props) {
+  const back = useBack(props.history)
+  const path = props.location.pathname
+  const { user,changeShow } = props
+  const [isBtnShow,setBtnShow] =useState(false)
+  useEffect(() => {
+    props.dispatch(isLogin())
+  }, [])
+
+  function getUser() {
+    if (path === "/login") {
+      return ""
+    }
+    if (user) {
+      return <span className="header-btn-right">
+        <span className="header-user" onClick={()=>{
+          setBtnShow(!isBtnShow)
+        }}>
+          {user}
+        </span>
+        <spam
+          style={{display:isBtnShow?"block":"none"}} 
+          className="header-logout-btn" onClick={()=>{
+          props.dispatch(logout())
+        }}>
+          退出
+        </spam>
+      </span>
+    } else {
+      return <Link className="user" to="/login"></Link>
+    }
   }
-  if(user){
-    return <span className="header-btn-right header-user">{user}</span>
-  }else{
-    return <Link className="user" to="/login"></Link>
-  }
-}
- function Header(props) {
-  const back =useBack(props.history)
-  const path =props.location.pathname
-  const {user} =props
   console.log(user);
   return (
     <header id="header">
       <nav className="menu">
-        {path==="/login"?<a className="header-btn-left iconfont icon-back" onClick={()=>{
+        {path === "/login" ? <a className="header-btn-left iconfont icon-back" onClick={() => {
           back()
-        }}></a>:<a className="header-btn-left iconfont icon-hycaidan"></a>}
+        }}></a> : <a className="header-btn-left iconfont icon-hycaidan" onClick={()=>{
+          changeShow()
+        }}></a>}
       </nav>
       <h1 className="logo">shawyoi.cn</h1>
-      {getUser(path,user)}
+      {getUser()}
     </header>
   )
 }
 
-export default connect(state=>{
-  console.log(state);
-  return {user:state.getUser}
+export default connect(state => {
+  return { user: state.getUser }
 })(withRouter(Header))

@@ -1,11 +1,11 @@
 import React from 'react'
 import {Switch,Route} from "react-router-dom"
-import routerList from './route_list'
+import {routeList} from './route_list'
 
 function IndexRoute(){
   return(
     <Switch>
-      {routerList.map((item,index)=>{
+      {routeList.map((item,index)=>{
         return <Route 
         key={index} 
         path={item.path} 
