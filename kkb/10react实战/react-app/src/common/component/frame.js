@@ -9,7 +9,7 @@ export default function Frame(props) {
   const [showMenu, setShowMenu] = useState(false)
   const innerH = useInnerHeight()
   const wrap=useRef(null)
-  let pageScroll=null
+  let {pullUp,getData} =props
   function changeShow() {
     setShowMenu(!showMenu)
   }
@@ -17,7 +17,25 @@ export default function Frame(props) {
     setShowMenu(false)
   }
   useEffect(()=>{
-    pageScroll = new BScroll(wrap.current)
+    let pageScroll = new BScroll(wrap.current,{
+      preventDefaultException:{
+        tagName:/^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/
+      },
+      pullUpLoad:pullUp?{
+        threshold:200
+      }:false
+    })
+    pageScroll.on("pullingUp",()=>{
+      getData().then(res=>{
+        if(res){
+          pageScroll.finishPullUp()
+          pageScroll.refresh()
+        }else{
+          pageScroll.closePullUp()
+        }
+
+      })
+    })
   },[])
   return (
     <div>
@@ -39,7 +57,7 @@ export default function Frame(props) {
             {props.children}
           </div>
         </div>
-      </div>
+      </div>    
     </div>
   )
 }
