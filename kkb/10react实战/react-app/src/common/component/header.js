@@ -37,7 +37,6 @@ function Header(props) {
       return <Link className="user" to="/login"></Link>
     }
   }
-  console.log(user);
   return (
     <header id="header">
       <nav className="menu">

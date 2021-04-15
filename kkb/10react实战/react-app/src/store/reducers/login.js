@@ -4,7 +4,6 @@ export default function getUser(state="",action){
       return action.user
     case "LOGOUT":
       return ""
-
   }
   return state
 }
