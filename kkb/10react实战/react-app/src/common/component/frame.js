@@ -36,8 +36,7 @@ export default function Frame(props) {
       >
         <div className="pageWrap" ref={wrap}>
           <div>
-          {props.children}
-
+            {props.children}
           </div>
         </div>
       </div>
