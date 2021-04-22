@@ -11,7 +11,7 @@ export default function Menu(porps){
                     key={index}
                     exact={true}
                     activeClassName={"active"}
-                    onTouchEnd={porps.menuHide}
+                    // onTouchEnd={porps.menuHide}
                 >{item.name}</NavLink>)
             })}
         </nav>

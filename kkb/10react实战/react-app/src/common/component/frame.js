@@ -6,10 +6,10 @@ import Menu from './menu';
 import "../css/reset.css"
 import "../css/common.css"
 export default function Frame(props) {
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMenu, setShowMenu] = useState(false) 
   const innerH = useInnerHeight()
   const wrap=useRef(null)
-  let {pullUp,getData} =props
+  let {pullUp,getData,bounce} =props
   function changeShow() {
     setShowMenu(!showMenu)
   }
@@ -23,8 +23,9 @@ export default function Frame(props) {
       },
       pullUpLoad:pullUp?{
         threshold:200
-      }:false
-    })
+      }:false,
+      bounce,
+    })      
     pageScroll.on("pullingUp",()=>{
       getData().then(res=>{
         if(res){
@@ -33,14 +34,13 @@ export default function Frame(props) {
         }else{
           pageScroll.closePullUp()
         }
-
       })
     })
   },[])
   return (
     <div>
       <Header
-        changeShow={changeShow}
+        changeShow={changeShow} 
       />
       <Menu menuHide={menuHide}/>
       <div
@@ -50,7 +50,6 @@ export default function Frame(props) {
           height: innerH
         }}
         onTouchStart={menuHide}
-        
       >
         <div className="pageWrap" ref={wrap}>
           <div>

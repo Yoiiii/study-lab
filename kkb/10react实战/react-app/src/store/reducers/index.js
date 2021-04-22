@@ -1,5 +1,6 @@
 import getUser from './login'
 import works from './works'
+import lecturers from './lecturers'
 function index(state={
   
 },actions){
@@ -8,5 +9,6 @@ function index(state={
 export default {
   index,
   getUser,
-  works
+  works,
+  lecturers
 }
