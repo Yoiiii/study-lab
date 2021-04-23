@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Document</title>
+  <style>
+    body {
+      margin:0
+    }
+    #warp {
+      height: 50vh;
+      border: 2px solid #000;
+    }
+    #list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    #list li {
+      font-size:20px;
+      line-height:1.6;
+      border-bottom: 1px solid red;
+      text-indent: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div id="warp">
+    <ul id="list"></ul>
+  </div>
+  <script>
+    //生成list 的Inner
+    {
+      let list = document.querySelector('#list')
+      list.innerHTML=[...(".".repeat(50))].map((item,index)=>
+        `<li>这是第${index}个li<li/>`
+      ).join("")
+    }
+    // 在warp 中滑动list
+    {
+      let warp =document.querySelector('#warp')
+      let list =document.querySelector('#list')
+      let startPintY= 0 //记录鼠标的初始坐标
+      let startTranslateY = 0
+      let translateY = 0//记录元素的tarnslate 的值
+      warp.addEventListener('touchstart',(e)=>{
+        startPintY =e.changedTouches[0].pageY
+        startTranslateY=startPintY
+      })
+      warp.addEventListener('touchmove',(e)=>{
+        let nowPointY = e.changedTouches[0].pageY
+        let disY=nowPointY-startPintY
+        translateY=startTranslateY+disY
+        list.style.transform=`translateY(${translateY}px`
+        e.preventDefault()
+      })
+    }
+  </script>
+</body>
+</html>
