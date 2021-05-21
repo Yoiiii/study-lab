@@ -47,16 +47,16 @@
       let translateY = 0//记录元素的tarnslate 的值
       warp.addEventListener('touchstart',(e)=>{
         startPintY =e.changedTouches[0].pageY
-        startTranslateY=startPintY
+        startTranslateY=translateY
       })
       warp.addEventListener('touchmove',(e)=>{
         let nowPointY = e.changedTouches[0].pageY
         let disY=nowPointY-startPintY
         translateY=startTranslateY+disY
-        list.style.transform=`translateY(${translateY}px`
+        list.style.transform=`translateY(${translateY}px)`
         e.preventDefault()
       })
     }
-  </script>
+  </script>     
 </body>
 </html>
