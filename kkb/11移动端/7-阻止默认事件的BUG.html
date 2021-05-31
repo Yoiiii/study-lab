@@ -45,18 +45,32 @@
       let startPintY= 0 //记录鼠标的初始坐标
       let startTranslateY = 0
       let translateY = 0//记录元素的tarnslate 
+      let isOff = true
       warp.addEventListener('touchstart',(e)=>{
         startPintY =e.changedTouches[0].pageY
         startTranslateY=translateY
+        setTimeout(()=>{[
+          isOff=false
+        ]},2000)
       })
       warp.addEventListener('touchmove',(e)=>{
         let nowPointY = e.changedTouches[0].pageY
         let disY=nowPointY-startPintY
         translateY=startTranslateY+disY
         list.style.transform=`translateY(${translateY}px)`
+        // if(isOff){
+        //   //先阻止默认事件，然后过一会不阻止
+        // e.preventDefault()
+        // } 
+        if(!isOff){
+          //先不阻止止默认事件，然后过一会阻止
         e.preventDefault()
+        } 
       })
     }
+    /*
+      注意：移动端move事件中，一旦触发了滚动条，中间不能再阻止默认事件让他停止触发
+    */
   </script>     
 </body>
 </html>

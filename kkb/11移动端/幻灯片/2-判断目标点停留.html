@@ -69,7 +69,7 @@
     </style>
 </head>
 <body>  
-<div id="warp">
+<div id="wrap">
     <ul id="list">
         <li><img src="img/banner01.png" /></li>
         <li><img src="img/banner02.png" /></li>
@@ -85,32 +85,65 @@
 </ul>
 <script>
 {
-  let warp = document.querySelector('#warp')
+  let wrap = document.querySelector('#wrap')
   let list =document.querySelector('#list')
+  let navs = document.querySelectorAll('.nav a')
   let startPoint={}
   let translateX= 0
   let starTtranslateX=0
-  warp.addEventListener('touchstart',(e)=>{
+  let now = 0
+  let wrapW =wrap.clientWidth
+  const range = .3*wrapW
+  list.innerHTML+=list.innerHTML
+  wrap.addEventListener('touchstart',(e)=>{
       let touch = e.changedTouches[0]
+      list.style.transition="none"//清除动画
       startPoint={
           x:touch.pageX,
           y:touch.pageY
       }
+      if(now==0){
+          now=navs.length
+      }else if(now==navs.length*2-1){
+        now = navs.length -1
+      }
+      translateX=-now*wrapW
+      list.style.transform=`translateX(${translateX}px)`
       starTtranslateX=translateX;
   })
-  warp.addEventListener('touchmove',(e)=>{
+  wrap.addEventListener('touchmove',(e)=>{
       let touch = e.changedTouches[0]
       let nowPoint={
           x:touch.pageX,
           y:touch.pageY
       }
-      let disY={
+      let dis = {
           x:nowPoint.x-startPoint.x,
           y:nowPoint.y-startPoint.y
       }
-      translateX=starTtranslateX+disY.x
-      list.style.transform = `translateX(${translateX}px)`
-      e.preventDefault()
+      translateX=starTtranslateX+dis.x
+      list.style.transform =`translateX(${translateX}px)`
+  })
+  wrap.addEventListener('touchend',(e)=>{
+      let touch = e.changedTouches[0]
+      let nowPoint={
+          x:touch.pageX,
+          y:touch.pageY
+      }
+      let dis={
+          x:nowPoint.x-startPoint.x,
+          y:nowPoint.y-startPoint.y
+      }
+      if(Math.abs(dis.x)>range){
+        now -= dis.x/Math.abs(dis.x)
+      }
+      navs.forEach(item=>{
+          item.classList.remove("active")
+      })
+      translateX=-now*wrapW
+      list.style.transition='.3s'
+      list.style.transform =`translateX(${translateX}px)`
+      navs[now%navs.length].classList.add('active')
   })
 }
 </script>
