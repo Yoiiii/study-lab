@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //摇一摇
+
+    /*
+      思考:摇一摇是怎么实现的
+      摇一摇监控的是手机是否进行了距离的晃动(两次事件之间)，加速度有一个大幅度的变化
+    */
+
+    //fn 用户进行了摇一摇之后的要做的事情
+    function shake(fn){
+      const maxRange = 40//当用户的加速度两次之间插值大于这个数，我们就认定用户进行了摇一摇
+      let lastX =0,
+          lastY=0,
+          lastZ= 0 
+      window.addEventListener("devicemotion",(e)=>{
+        let {acceleration}=e
+        let {x,y,z}=acceleration
+        let range = Math.abs(x-lastX) +Math.abs(y-lastY) +Math.abs(z-lastZ)
+        if(range>maxRange){
+          fn(e)
+        }
+        lastX=x
+        lastY=y
+        lastZ=z
+      })
+    }
+    shake(()=>{
+      alert("摇一摇！")
+    })
+  </script>
+</body>
+</html>

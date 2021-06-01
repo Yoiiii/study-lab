@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    函数防抖:多次调用一个函数，最终只执行一次
+    函数节流:多次执行一个函数，但是我们希望能把函数的执行限定在一个可以接受的频率内，降低执行频率
+   -->
+   <script src="js/debounce.js"></script>
+   <script src="js/throttle.js"></script>
+   <script>
+     //let now = 0
+    //  document.addEventListener('mousemove',(e)=>{
+    //   //  console.log(1);
+    //   //  console.timeEnd(now)
+    //   //  now++
+    //   //  console.time(now)
+    //   let newEl = document.createElement("div")
+    //   newEl.style.cssText=`left:${e.clientX}px;top:${e.clientY}px`
+    //   document.body.appendChild(newEl)
+    //  })
+
+    //防抖
+    // let fn=()=>{
+    //   console.log('发生了move');
+    // }
+    // document.addEventListener("mousemove",debounce(fn,200))
+
+    //节流
+    let fn=()=>{
+      console.log("resize");
+    }
+    document.addEventListener("resize",throttle(fn,300,{
+      leading:true//延迟前执行还是延迟后执行
+    }))
+   </script>
+</body>
+</html>

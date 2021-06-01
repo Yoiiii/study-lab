@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+   <script src="js/debounce.js"></script>
+   <script src="js/throttle.js"></script>
+   <script>
+    //  函数防抖
+    //  let timer = 0
+    // document.addEventListener("mousemove",()=>{
+    //   clearTimeout(timer)
+    //   timer = setTimeout(()=>{
+    //   console.log("move");
+    //   },200)
+    // })
+
+    //函数节流
+    let timer = 0 
+    document.addEventListener("mousemove",()=>{
+      if(timer){
+        return
+      }
+      timer = setTimeout(()=>{
+        console.log("move");
+        timer=0
+      },200)
+    })
+   </script>
+</body>
+</html>
