@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <audio src=""></audio>
+  <script>
+    console.log(window.navigator.userAgent);
+    function throttle(fn,delay=200,isStart = true){
+      if(typeof fn !== 'function'){
+        return console.error("请传入一个函数");
+      }
+      let timer = 0
+      let isFrist =true //第一次触发
+      // 返回处理过节流的新函数
+      return function(...arg){
+        let _this =this
+        if(timer){//当时间没过时不执行
+          return
+        }
+        isStart&&fn.apply(_this,arg)
+        timer = setTimeout(()=>{
+          !isStart&&fn.apply(_this,arg)
+          timer = 0
+        },delay)
+      }
+    }
+    //摇一摇
+
+    /*
+      思考:摇一摇是怎么实现的
+      摇一摇监控的是手机是否进行了距离的晃动(两次事件之间)，加速度有一个大幅度的变化
+    */
+
+    //fn 用户进行了摇一摇之后的要做的事情
+    function shake(fn,shakeing){
+      const maxRange = 40//当用户的加速度两次之间插值大于这个数，我们就认定用户进行了摇一摇
+      const minRange = 10
+      let lastX =0,
+          lastY=0,
+          lastZ= 0 
+      isShake=false
+      window.addEventListener("devicemotion",throttle((e)=>{
+        let {acceleration}=e
+        let {x,y,z}=acceleration
+        let range = Math.abs(x-lastX) +Math.abs(y-lastY) +Math.abs(z-lastZ)
+        if(range>maxRange){
+          //fn(e)
+          isShake=true
+        }else if(minRange>range&&isShake){
+          fn(e)
+          isShake=false
+        }
+        if(shakeing){
+          isS
+        }
+        lastX=x
+        lastY=y
+        lastZ=z
+      },500))
+    }
+    shake(()=>{
+      alert("摇一摇！")
+    })
+  </script>
+</body>
+</html>

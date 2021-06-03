@@ -8,36 +8,34 @@
 </head>
 <body>
   <script>
-    //防抖函数
+    //节流函数
     /*
       fn 要执行的防抖处理函数
       delay 多长时间之内用户重新触发 不执行
     */
-
     //调用时，立即执行这个函数
-    function debounce(fn,delay=200,isStart=false){
+    function throttle(fn,delay=200,isStart = true){
       if(typeof fn !== 'function'){
         return console.error("请传入一个函数");
       }
       let timer = 0
       let isFrist =true //第一次触发
-      // 返回处理过防抖的新函数
+      // 返回处理过节流的新函数
       return function(...arg){
         let _this =this
-        if(isFrist&&isStart){
-          fn.apply(_this,arg)
-          isFrist=false
+        if(timer){//当时间没过时不执行
+          return
         }
-        clearTimeout(timer)
+        isStart&&fn.apply(_this,arg)
         timer = setTimeout(()=>{
-          (!isStart)&&(fn.apply(_this,arg))
-          isFrist=true
+          !isStart&&fn.apply(_this,arg)
+          timer = 0
         },delay)
       }
     }
-    document.addEventListener("mousemove",debounce(function(e){
+    document.addEventListener("mousemove",throttle(function(e){
       console.log("发生了move",e,this);
-    },600,true))
+    },1000))
   </script>
 </body>
 </html>
