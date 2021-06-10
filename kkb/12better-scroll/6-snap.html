@@ -109,7 +109,7 @@ ul {
   })
   snap.on('scrollEnd',(e)=>{
     //console.log(snap.getCurrentPage());
-    navs.forEach(item=>{
+    navs.forEach(item=>{4
       item.classList.remove("active")
     })
     navs[snap.getCurrentPage().pageX].classList.add("active")
@@ -131,7 +131,7 @@ ul {
   },2000)
   navs.forEach((item,index)=>{
     item.addEventListener('tap',()=>{
-      console.log(index);
+      console.log(index); 
       snap.goToPage(index,0)
       navs.forEach(item=>{
       item.classList.remove("active")
