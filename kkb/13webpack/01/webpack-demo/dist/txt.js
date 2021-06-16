@@ -10,23 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/fn1.js":
-/*!********************!*\
-  !*** ./src/fn1.js ***!
-  \********************/
+/***/ "./src/data/test.txt":
+/*!***************************!*\
+  !*** ./src/data/test.txt ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {\r\n  console.log(\"fn1\");\r\n}\n\n//# sourceURL=webpack://webpack-demo/./src/fn1.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"阿萨德咖啡机阿里\");\n\n//# sourceURL=webpack://webpack-demo/./src/data/test.txt?");
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/index-txt.js":
+/*!**************************!*\
+  !*** ./src/index-txt.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _fn1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fn1 */ \"./src/fn1.js\");\n/*\r\n  使用esm来进行代码的开发\r\n*/\r\n\r\n\r\n(0,_fn1__WEBPACK_IMPORTED_MODULE_0__.default)()\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data_test_txt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data/test.txt */ \"./src/data/test.txt\");\n\r\n\r\nconsole.log(_data_test_txt__WEBPACK_IMPORTED_MODULE_0__.default);\n\n//# sourceURL=webpack://webpack-demo/./src/index-txt.js?");
 
 /***/ })
 
@@ -90,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _fn1
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index-txt.js");
 /******/ 	
 /******/ })()
 ;

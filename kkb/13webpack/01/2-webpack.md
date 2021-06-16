@@ -5,7 +5,7 @@
 ## webpack 是什么？
 
 - 官⽅方⽹网站:https://webpack.js.org/
-- 中⽂文⽹网站:https://www.webpackjs.com/
+- 中⽂文⽹网站:https://www.packjs.com/
 
 ![image-20191014165344746](./assets/webpack_description_2.jpg)
 
