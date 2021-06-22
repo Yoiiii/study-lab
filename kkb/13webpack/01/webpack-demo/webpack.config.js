@@ -12,7 +12,8 @@ module.exports={
     // 'index':"./src/index.js",
     // 'user':"./src/user.js"
     // "txt":"./src/index-txt.js"
-    "md":"./src/index-md.js"
+    //"md":"./src/index-md.js"
+    "file":"./src/index-file.js"
   },
   //出口
   output:{
@@ -32,9 +33,26 @@ module.exports={
       use:'raw-loader'
       },
       {
-        md:/\.md$/,
-        use:'markdown-loader'
+        test:/\.md$/,
+        use:[
+          {
+            loader:"html-loader"
+          },
+          {
+            loader:"markdown-loader"
+          }
+        ]
+      },
+      {
+        test:/\.(png|jpe?g|gif)$/,
+        use:{
+          loader:"file-loader",
+          options:{
+            name:"[name]_[hash].[ext]",
+            outputPath:"./images"
+          }
+        }
       }
     ]
   }
-}
+} 
