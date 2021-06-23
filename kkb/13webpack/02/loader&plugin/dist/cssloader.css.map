@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://webpack-demo/./src/css/css.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,YAAY;EACZ,eAAe;AACjB,C","file":"cssloader.css","sourcesContent":["body {\r\n  width: 100%;\r\n  height: 100%;\r\n  background: red;\r\n}"],"sourceRoot":""}

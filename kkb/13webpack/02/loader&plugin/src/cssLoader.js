@@ -9,3 +9,7 @@
 // document.head.appendChild(styleElement)
 
 import  './css/css.css'
+
+import fn from './fn'
+
+document.onclick =fn
