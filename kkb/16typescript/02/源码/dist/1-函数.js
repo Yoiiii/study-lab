@@ -6,5 +6,8 @@
 // function fn1(a:number,b:number):number{
 //     return a+b;
 // }
-
-// let f1 = fn1(1,2)
+function fn2(callback) {
+}
+fn2(function (a, b) {
+    return a + b;
+});
