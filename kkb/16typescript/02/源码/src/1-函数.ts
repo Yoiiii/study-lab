@@ -83,15 +83,27 @@
 //     }
 // }
 
-function showOrHide(ele: HTMLElement, attr: string, value: 'block'|'none'|number) {
-	//
+// function showOrHide(ele: HTMLElement, attr: string, value: 'block'|'none'|number) {
+// 	//
+// }
+
+// let div = document.querySelector('div');
+
+// if (div) {
+//   showOrHide( div, 'display', 'none' );
+//   showOrHide( div, 'opacity', 1 );
+// 	// error，这里是有问题的，虽然通过联合类型能够处理同时接收不同类型的参数，但是多个参数之间是一种组合的模式，我们需要的应该是一种对应的关系
+//   showOrHide( div, 'display', 1 );
+// }
+
+//当同名函数接受的参数类型或者参数的个数不一致的时候，那么这个时候，我们需要函数重载
+function showOrHide(ele:HTMLElement,attr:'display',value:'block'|'none')
+function showOrHide(ele:HTMLElement,attr:'opacity',value:number)
+function showOrHide(ele:any,attr:any,value:any){
+  if(attr==='opacity'){
+    //...
+  }
 }
 
-let div = document.querySelector('div');
-
-if (div) {
-  showOrHide( div, 'display', 'none' );
-  showOrHide( div, 'opacity', 1 );
-	// error，这里是有问题的，虽然通过联合类型能够处理同时接收不同类型的参数，但是多个参数之间是一种组合的模式，我们需要的应该是一种对应的关系
-  showOrHide( div, 'display', 1 );
-}
+showOrHide(document.body,'display','none')
+showOrHide(document.body,'opacity',1)

@@ -6,8 +6,10 @@
 // function fn1(a:number,b:number):number{
 //     return a+b;
 // }
-function fn2(callback) {
+function showOrHide(ele, attr, value) {
+    if (attr === 'opacity') {
+        //...
+    }
 }
-fn2(function (a, b) {
-    return a + b;
-});
+showOrHide(document.body, 'display', 'none');
+showOrHide(document.body, 'opacity', 1);
